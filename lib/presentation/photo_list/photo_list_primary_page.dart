@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:space_pictures/application/photo_list/photo_list_bloc.dart';
 import 'package:space_pictures/injection.dart';
+import 'package:space_pictures/presentation/photo_list/photo_list.dart';
 
 class PhotoListPrimaryPage extends StatelessWidget {
   const PhotoListPrimaryPage({Key? key}) : super(key: key);
@@ -30,7 +31,7 @@ class PhotoListPrimaryPage extends StatelessWidget {
                     )
                   ],
                 ),
-                body: Container(color: Colors.grey,),
+                body: PhotoList(),
               );
             },
           ),
