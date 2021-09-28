@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:space_pictures/application/photo_list/photo_list_bloc.dart';
 import 'package:space_pictures/injection.dart';
 import 'package:space_pictures/presentation/photo_list/photo_list.dart';
+import 'package:space_pictures/presentation/photo_list_local/photo_list_local_primary_page.dart';
 
 class PhotoListPrimaryPage extends StatelessWidget {
   const PhotoListPrimaryPage({Key? key}) : super(key: key);
@@ -32,12 +33,37 @@ class PhotoListPrimaryPage extends StatelessWidget {
                 ],
               ),
               body: const PhotoList(),
-              floatingActionButton: FloatingActionButton(
-                onPressed: () {
-                  context.read<PhotoListBloc>().add(const PhotoListEvent.getAllPhoto());
-                },
-                child: const Icon(Icons.refresh),
-                backgroundColor: Colors.blueGrey,
+              floatingActionButton: Container(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    Container(
+                      padding: EdgeInsets.all(5),
+                      child: FloatingActionButton(
+                        heroTag: '2',
+                        backgroundColor: Colors.blueGrey,
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => PhotoListLocalPrimaryPage()),
+                          );
+                        },
+                        child: Icon(Icons.star),
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.all(5),
+                      child: FloatingActionButton(
+                        heroTag: '1',
+                        backgroundColor: Colors.blueGrey,
+                        onPressed: () {
+                          context.read<PhotoListBloc>().add(PhotoListEvent.getAllPhoto());
+                        },
+                        child: Icon(Icons.refresh),
+                      ),
+                    ),
+                  ],
+                ),
               ));
         },
       ),
