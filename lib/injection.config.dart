@@ -7,6 +7,7 @@
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
+import 'application/photo_list/photo_list_bloc.dart' as _i7;
 import 'domain/service/i_photo_list_repository.dart' as _i3;
 import 'domain/service/i_photo_list_service.dart' as _i5;
 import 'infrastructure/photo_list/photo_list_repository.dart' as _i4;
@@ -21,5 +22,7 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   gh.lazySingleton<_i3.IPhotoListRepository>(() => _i4.PhotoListRepository());
   gh.lazySingleton<_i5.IPhotoListService>(
       () => _i6.PhotoListService(get<_i3.IPhotoListRepository>()));
+  gh.factory<_i7.PhotoListBloc>(
+      () => _i7.PhotoListBloc(get<_i5.IPhotoListService>()));
   return get;
 }
