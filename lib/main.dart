@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:space_pictures/injection.dart';
+import 'package:space_pictures/presentation/photo_list/photo_list_primary_page.dart';
 
 void main() {
   configureInjection();
@@ -12,11 +13,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Space pcitures',
+      title: 'Space pictures',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Container(),
+      home: PhotoListPrimaryPage(),
     );
   }
 }
