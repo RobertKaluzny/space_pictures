@@ -27,12 +27,21 @@ class PhotoElementItem extends StatelessWidget {
                 ),
               ),),
 
-          SizedBox(height: 10,),
-          Text(photoElement.title, style: TextStyle(fontSize: 12)),
-          SizedBox(height: 10,),
-          Text(photoElement.apodSite, style: TextStyle(fontSize: 12)),
-          SizedBox(height: 10,),
-          Text(photoElement.date, style: TextStyle(fontSize: 12)),
+          Row(
+            children: [
+              Column(
+                children: [
+                  SizedBox(height: 10,),
+                  Text(photoElement.date, style: TextStyle(fontSize: 12)),
+                  SizedBox(height: 10,),
+                  Text(photoElement.title, style: TextStyle(fontSize: 12)),
+                ],
+              ),
+
+            ],
+          ),
+
+
 
 
 

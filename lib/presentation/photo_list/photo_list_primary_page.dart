@@ -10,32 +10,37 @@ class PhotoListPrimaryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<PhotoListBloc>(
-        create: (context) => getIt<PhotoListBloc>()..add(const PhotoListEvent.getAllPhoto()),
-        child: BlocBuilder<PhotoListBloc, PhotoListState>(
-            builder: (context, state) {
-              return Scaffold(
-                appBar: AppBar(
-                  elevation: 0,
-                  backgroundColor: Colors.white,
-                  title: Container(
-                    //padding: EdgeInsets.symmetric(horizontal: propPadding/),
-                    alignment: Alignment.center,
-                    child: Text(
-                      "Space pictures",
-                      style: TextStyle(fontSize: 26, color: Colors.brown, fontWeight: FontWeight.bold),
-                    ),
+      create: (context) => getIt<PhotoListBloc>()..add(const PhotoListEvent.getAllPhoto()),
+      child: BlocBuilder<PhotoListBloc, PhotoListState>(
+        builder: (context, state) {
+          return Scaffold(
+              appBar: AppBar(
+                elevation: 0,
+                backgroundColor: Colors.white,
+                title: Container(
+                  //padding: EdgeInsets.symmetric(horizontal: propPadding/),
+                  alignment: Alignment.center,
+                  child: Text(
+                    "Space pictures",
+                    style: TextStyle(fontSize: 26, color: Colors.brown, fontWeight: FontWeight.bold),
                   ),
-                  actions: <Widget>[
-                    SizedBox(
-                      width: 40,
-                    )
-                  ],
                 ),
-                body: PhotoList(),
-              );
-            },
-          ),
-
+                actions: <Widget>[
+                  SizedBox(
+                    width: 40,
+                  )
+                ],
+              ),
+              body: PhotoList(),
+              floatingActionButton: FloatingActionButton(
+                onPressed: () {
+                  context.read<PhotoListBloc>().add(PhotoListEvent.getAllPhoto());
+                },
+                child: Icon(Icons.refresh),
+                backgroundColor: Colors.blueGrey,
+              ));
+        },
+      ),
     );
   }
 }
