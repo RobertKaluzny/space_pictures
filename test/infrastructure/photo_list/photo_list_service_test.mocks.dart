@@ -6,6 +6,8 @@ import 'dart:async' as _i3;
 
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:space_pictures/domain/photo_list/photo_element.dart' as _i4;
+import 'package:space_pictures/infrastructure/database_and_api/photo_element_dto.dart'
+    as _i5;
 import 'package:space_pictures/infrastructure/photo_list/photo_list_repository.dart'
     as _i2;
 
@@ -33,6 +35,15 @@ class MockPhotoListRepository extends _i1.Mock
               returnValue:
                   Future<List<_i4.PhotoElement>>.value(<_i4.PhotoElement>[]))
           as _i3.Future<List<_i4.PhotoElement>>);
+  @override
+  _i3.Future<List<_i4.PhotoElement>> getAllPhotoLocalList() =>
+      (super.noSuchMethod(Invocation.method(#getAllPhotoLocalList, []),
+              returnValue:
+                  Future<List<_i4.PhotoElement>>.value(<_i4.PhotoElement>[]))
+          as _i3.Future<List<_i4.PhotoElement>>);
+  @override
+  dynamic savePhotoLocal(_i5.PhotoElementDTO? photoElementDTO) =>
+      super.noSuchMethod(Invocation.method(#savePhotoLocal, [photoElementDTO]));
   @override
   String toString() => super.toString();
 }

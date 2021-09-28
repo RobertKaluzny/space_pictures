@@ -29,6 +29,14 @@ class PhotoListBloc extends Bloc<PhotoListEvent, PhotoListState> {
           List<PhotoElement> photoList = await _photoListService.getAllPhoto();
           yield PhotoListState.setAllPhoto(photoList);
         },
+      getAllPhotoLocal: (e) async* {
+        yield const PhotoListState.initial();
+        List<PhotoElement> photoList = await _photoListService.getAllPhotoLocal();
+        yield PhotoListState.setAllPhoto(photoList);
+      },
+      savePhotoLocal: (e) async* {
+        await _photoListService.savePhotoLocal(e.photoElement);
+      },
     );
   }
 }

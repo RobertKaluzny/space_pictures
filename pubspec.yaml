@@ -21,6 +21,14 @@ dependencies:
   get_it: ^7.2.0
   google_fonts: ^2.1.0
   transparent_image: ^2.0.0
+  connectivity: ^3.0.6
+  path_provider: ^2.0.5
+  http: ^0.13.3
+  image_gallery_saver: ^1.7.0
+  permission_handler: ^8.1.6
+  dio: ^4.0.0
+  sqflite: ^2.0.0+4
+  path: ^1.8.0
 
   cupertino_icons: ^1.0.2
 

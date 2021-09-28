@@ -36,6 +36,33 @@ abstract class PhotoElementDTO implements _$PhotoElementDTO {
 
       );
 
+  factory PhotoElementDTO.fromLocalDatabase(Map<String, dynamic> json) =>
+      PhotoElementDTO(
+        failure: Failure.setNoFailure(),
+        apodSite: json["apod_site"],
+        copyright: json["copyright"],
+        date: json["date"],
+        description: json["description"],
+        hdurl: json["hdurl"],
+        mediaType: json["media_type"],
+        title: json["title"],
+        url: json["url"],
+        localPath:  json["local_path"],
+      );
+
+  factory PhotoElementDTO.fromPhoto(PhotoElement photoElement) =>
+      PhotoElementDTO(
+          failure: photoElement.failure,
+          apodSite: photoElement.apodSite,
+          copyright: photoElement.copyright,
+          date: photoElement.date,
+          description: photoElement.description,
+          hdurl: photoElement.hdurl,
+          mediaType: photoElement.mediaType,
+          title: photoElement.title,
+          url: photoElement.url,
+          localPath: photoElement.localPath);
+
   PhotoElement toPhotoElement() {
     return PhotoElement(
         failure: failure,
@@ -48,6 +75,20 @@ abstract class PhotoElementDTO implements _$PhotoElementDTO {
         title: title,
         url: url,
         localPath: localPath);
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'apod_site': apodSite,
+      'copyright': copyright,
+      'date': date,
+      'description': description,
+      'hdurl': hdurl,
+      'media_type': mediaType,
+      'title': title,
+      'url': url,
+      'local_path': localPath,
+    };
   }
 
 }

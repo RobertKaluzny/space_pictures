@@ -20,23 +20,23 @@ class PhotoListPrimaryPage extends StatelessWidget {
                 title: Container(
                   //padding: EdgeInsets.symmetric(horizontal: propPadding/),
                   alignment: Alignment.center,
-                  child: Text(
+                  child: const Text(
                     "Space pictures",
                     style: TextStyle(fontSize: 26, color: Colors.brown, fontWeight: FontWeight.bold),
                   ),
                 ),
-                actions: <Widget>[
+                actions: const <Widget>[
                   SizedBox(
                     width: 40,
                   )
                 ],
               ),
-              body: PhotoList(),
+              body: const PhotoList(),
               floatingActionButton: FloatingActionButton(
                 onPressed: () {
-                  context.read<PhotoListBloc>().add(PhotoListEvent.getAllPhoto());
+                  context.read<PhotoListBloc>().add(const PhotoListEvent.getAllPhoto());
                 },
-                child: Icon(Icons.refresh),
+                child: const Icon(Icons.refresh),
                 backgroundColor: Colors.blueGrey,
               ));
         },
