@@ -1,9 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:space_pictures/infrastructure/database_and_api/photo_element_dto.dart';
 
-import '../fixtures.dart';
-
-
+import '../../fixtures.dart';
 
 void main() {
   group('PhotoElementDto', () {

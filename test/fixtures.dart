@@ -16,7 +16,6 @@ PhotoElement mockPhotoElement = PhotoElement(
     url: 'url',
     localPath: 'localPath');
 
-
 PhotoElementDTO mockPhotoElementDto = PhotoElementDTO(
     failure: mockFailure,
     apodSite: 'apodSite',
@@ -28,3 +27,9 @@ PhotoElementDTO mockPhotoElementDto = PhotoElementDTO(
     title: 'title',
     url: 'url',
     localPath: 'localPath');
+
+List<PhotoElement> mockPhotoElementList = [
+  mockPhotoElement,
+  mockPhotoElement.copyWith(apodSite: 'apodSide1'),
+  mockPhotoElement.copyWith(apodSite: 'apodSide2')
+];
