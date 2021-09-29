@@ -70,7 +70,7 @@ class DBSQLitetProvider {
       return list;
     } catch (e){
       List<PhotoElementDTO> photoElementDTOFailure = [
-        PhotoElementDTO.setFailure(Failure(failureId: 'SQL', failureValue: 'Error from local base', failureForUser: 'Error from local base', value: true))
+        PhotoElementDTO.setFailure(const Failure(failureId: 'SQL', failureValue: 'Error from local base', failureForUser: 'Error from local base', value: true))
       ];
       return photoElementDTOFailure;
     }

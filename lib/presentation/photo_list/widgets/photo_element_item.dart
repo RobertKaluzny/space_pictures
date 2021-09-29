@@ -1,10 +1,13 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+
 // ignore: implementation_imports
 import 'package:provider/src/provider.dart';
 import 'package:space_pictures/application/photo_list/photo_list_bloc.dart';
 import 'package:space_pictures/domain/photo_list/photo_element.dart';
+import 'package:space_pictures/presentation/photo_element_details/photo_element_details.dart';
+import 'package:space_pictures/presentation/properties.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class PhotoElementItem extends StatelessWidget {
@@ -19,56 +22,59 @@ class PhotoElementItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.all(5),
-      padding: const EdgeInsets.all(10),
+      //padding: const EdgeInsets.all(10),
 
-      color: Colors.grey,
+      //color: Colors.grey,
       child: Column(
         children: [
-          Container(
-            //height: 200,
-            alignment: Alignment.center,
-            child: !localMode
-                ? FadeInImage.memoryNetwork(
-                    placeholder: kTransparentImage,
-                    image: photoElement.url,
-                  )
-                : Image.file(File(photoElement.localPath)),
+          TextButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => PhotoElementDetails(
+                          photoElement: photoElement,
+                        )),
+              );
+            },
+            child: Container(
+                width: 400,
+                alignment: Alignment.center,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(12.0),
+                  child: !localMode
+                      ? FadeInImage.memoryNetwork(
+                          placeholder: kTransparentImage,
+                          image: photoElement.url,
+                        )
+                      : Image.file(File(photoElement.localPath)),
+                )),
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Column(
-                children: [
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Text(photoElement.date, style: const TextStyle(fontSize: 12)),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Text(photoElement.title, style: const TextStyle(fontSize: 12)),
-                ],
-              ),
               !localMode
-                  ? Container(
-                      width: 60,
-                      height: 35,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        color: Colors.blueGrey,
-                        borderRadius: BorderRadius.circular(6),
-                      ),
-                      child: TextButton(
-                        onPressed: () {
-                          context.read<PhotoListBloc>().add(PhotoListEvent.savePhotoLocal(photoElement));
-                        },
-                        child: const Text(
-                          'Save',
-                          style: TextStyle(fontSize: 14, color: Colors.white),
-                        ),
-                      ),
+                  ? IconButton(
+                      iconSize: 25,
+                      icon: const Icon(Icons.save_alt),
+                      color: propPrimaryColor,
+                      onPressed: () {
+                        context.read<PhotoListBloc>().add(PhotoListEvent.savePhotoLocal(photoElement));
+                      },
                     )
                   : Container(),
+              Container(
+                width: 280,
+                padding: const EdgeInsets.all(0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(photoElement.date, style: Theme.of(context).textTheme.headline6?.copyWith(color: propSecondaryColor)),
+                    Text(photoElement.title, style: Theme.of(context).textTheme.bodyText1),
+                    const SizedBox(height: 20,)
+                  ],
+                ),
+              ),
             ],
           ),
         ],

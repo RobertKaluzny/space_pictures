@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:space_pictures/application/photo_list/photo_list_bloc.dart';
 import 'package:space_pictures/injection.dart';
 import 'package:space_pictures/presentation/photo_list_local/photo_list_local.dart';
+import 'package:space_pictures/presentation/properties.dart';
 
 class PhotoListLocalPrimaryPage extends StatelessWidget {
   const PhotoListLocalPrimaryPage({Key? key}) : super(key: key);
@@ -20,13 +21,12 @@ class PhotoListLocalPrimaryPage extends StatelessWidget {
           backgroundColor: Colors.white,
           leading: IconButton(
             icon: const Icon(Icons.arrow_back),
-            color: Colors.green,
+            color: Colors.black,
             onPressed: () {Navigator.pop(context);},
           ),
-
-
+          title: Text('Ulubione', style: Theme.of(context).textTheme.headline5?.copyWith(color: propPrimaryColor)),
         ),
-        body: PhotoListLocal(),
+        body: const PhotoListLocal(),
       ),
 
     );

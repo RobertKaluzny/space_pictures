@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:space_pictures/application/photo_list/photo_list_bloc.dart';
 import 'package:space_pictures/injection.dart';
-import 'package:space_pictures/language/app_localizations.dart';
 import 'package:space_pictures/presentation/photo_list/photo_list.dart';
 import 'package:space_pictures/presentation/photo_list_local/photo_list_local_primary_page.dart';
+import 'package:space_pictures/presentation/properties.dart';
 
 class PhotoListPrimaryPage extends StatelessWidget {
   const PhotoListPrimaryPage({Key? key}) : super(key: key);
@@ -16,24 +16,8 @@ class PhotoListPrimaryPage extends StatelessWidget {
       child: BlocBuilder<PhotoListBloc, PhotoListState>(
         builder: (context, state) {
           return Scaffold(
-              appBar: AppBar(
-                elevation: 0,
-                backgroundColor: Colors.white,
-                title: Container(
-                  //padding: EdgeInsets.symmetric(horizontal: propPadding/),
-                  alignment: Alignment.center,
-                  child: Text(
-                    AppLocalizations.of(context)!.translate('title'),
-                    style: const TextStyle(fontSize: 26, color: Colors.brown, fontWeight: FontWeight.bold),
-                  ),
-                ),
-                actions: const <Widget>[
-                  SizedBox(
-                    width: 40,
-                  )
-                ],
-              ),
-              body: const PhotoList(),
+              body: const SafeArea(
+                  child:  PhotoList()),
               floatingActionButton: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
@@ -41,21 +25,21 @@ class PhotoListPrimaryPage extends StatelessWidget {
                     padding: const EdgeInsets.all(5),
                     child: FloatingActionButton(
                       heroTag: '2',
-                      backgroundColor: Colors.blueGrey,
+                      backgroundColor: propPrimaryColor,
                       onPressed: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => const PhotoListLocalPrimaryPage()),
                         );
                       },
-                      child: const Icon(Icons.star),
+                      child: const Icon(Icons.bookmark),
                     ),
                   ),
                   Container(
                     padding: const EdgeInsets.all(5),
                     child: FloatingActionButton(
                       heroTag: '1',
-                      backgroundColor: Colors.blueGrey,
+                      backgroundColor: propSecondaryColor,
                       onPressed: () {
                         context.read<PhotoListBloc>().add(const PhotoListEvent.getAllPhoto());
                       },

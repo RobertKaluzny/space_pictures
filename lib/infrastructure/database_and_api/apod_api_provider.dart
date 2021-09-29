@@ -27,7 +27,7 @@ class ApodApiProvider implements IExternalProvider {
     } catch (e) {
 
       List<PhotoElementDTO> photoElementDTOFailure = [
-        PhotoElementDTO.setFailure(Failure(failureId: 'API', failureValue: 'Error from API', failureForUser: 'Error from API', value: true))
+        PhotoElementDTO.setFailure(const Failure(failureId: 'API', failureValue: 'Error from API', failureForUser: 'Error from API', value: true))
       ];
       return photoElementDTOFailure;
 
