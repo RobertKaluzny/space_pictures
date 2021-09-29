@@ -10,6 +10,8 @@ import 'package:space_pictures/infrastructure/database_and_api/photo_element_dto
     as _i5;
 import 'package:space_pictures/infrastructure/photo_list/photo_list_repository.dart'
     as _i2;
+import 'package:space_pictures/infrastructure/save_localy/get_and_save_localy.dart'
+    as _i6;
 
 // ignore_for_file: avoid_redundant_argument_values
 // ignore_for_file: avoid_setters_without_getters
@@ -44,6 +46,62 @@ class MockPhotoListRepository extends _i1.Mock
   @override
   dynamic savePhotoLocal(_i5.PhotoElementDTO? photoElementDTO) =>
       super.noSuchMethod(Invocation.method(#savePhotoLocal, [photoElementDTO]));
+  @override
+  String toString() => super.toString();
+}
+
+/// A class which mocks [GetAndSaveLocaly].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockGetAndSaveLocaly extends _i1.Mock implements _i6.GetAndSaveLocaly {
+  MockGetAndSaveLocaly() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  String get fullPath =>
+      (super.noSuchMethod(Invocation.getter(#fullPath), returnValue: '')
+          as String);
+  @override
+  set fullPath(String? _fullPath) =>
+      super.noSuchMethod(Invocation.setter(#fullPath, _fullPath),
+          returnValueForMissingStub: null);
+  @override
+  String get url =>
+      (super.noSuchMethod(Invocation.getter(#url), returnValue: '') as String);
+  @override
+  set url(String? _url) => super.noSuchMethod(Invocation.setter(#url, _url),
+      returnValueForMissingStub: null);
+  @override
+  String get fileName =>
+      (super.noSuchMethod(Invocation.getter(#fileName), returnValue: '')
+          as String);
+  @override
+  set fileName(String? _fileName) =>
+      super.noSuchMethod(Invocation.setter(#fileName, _fileName),
+          returnValueForMissingStub: null);
+  @override
+  String get folderName =>
+      (super.noSuchMethod(Invocation.getter(#folderName), returnValue: '')
+          as String);
+  @override
+  set folderName(String? _folderName) =>
+      super.noSuchMethod(Invocation.setter(#folderName, _folderName),
+          returnValueForMissingStub: null);
+  @override
+  _i3.Future<bool> getAndSave(
+          dynamic urlTemp, dynamic fileNameTemp, dynamic folderName) =>
+      (super.noSuchMethod(
+          Invocation.method(#getAndSave, [urlTemp, fileNameTemp, folderName]),
+          returnValue: Future<bool>.value(false)) as _i3.Future<bool>);
+  @override
+  _i3.Future<bool> setPathOnAndroidPhotos() =>
+      (super.noSuchMethod(Invocation.method(#setPathOnAndroidPhotos, []),
+          returnValue: Future<bool>.value(false)) as _i3.Future<bool>);
+  @override
+  _i3.Future<bool> setPathOnAndroidStorage() =>
+      (super.noSuchMethod(Invocation.method(#setPathOnAndroidStorage, []),
+          returnValue: Future<bool>.value(false)) as _i3.Future<bool>);
   @override
   String toString() => super.toString();
 }

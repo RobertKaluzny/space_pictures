@@ -3,18 +3,19 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:space_pictures/infrastructure/photo_list/photo_list_repository.dart';
 import 'package:space_pictures/infrastructure/photo_list/photo_list_service.dart';
+import 'package:space_pictures/infrastructure/save_localy/get_and_save_localy.dart';
 
 import '../../fixtures.dart';
 import 'photo_list_service_test.mocks.dart';
 
 
-
-@GenerateMocks([PhotoListRepository])
+@GenerateMocks([PhotoListRepository, GetAndSaveLocaly])
 void main() {
   PhotoListService photoListService;
 
   var photoListRepositoryMock = MockPhotoListRepository();
-  photoListService = PhotoListService(photoListRepositoryMock);
+  var getAndSaveLocalyMock = MockGetAndSaveLocaly();
+  photoListService = PhotoListService(photoListRepositoryMock, getAndSaveLocalyMock);
 
   setUp(() {});
 
