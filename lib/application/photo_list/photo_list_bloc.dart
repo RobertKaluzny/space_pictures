@@ -1,9 +1,9 @@
-
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:space_pictures/domain/failure/failure.dart';
 import 'package:space_pictures/domain/photo_list/photo_element.dart';
 import 'package:space_pictures/domain/service/i_photo_list_service.dart';
 
@@ -21,18 +21,26 @@ class PhotoListBloc extends Bloc<PhotoListEvent, PhotoListState> {
 
   @override
   Stream<PhotoListState> mapEventToState(
-      PhotoListEvent event,
-      ) async* {
+    PhotoListEvent event,
+  ) async* {
     yield* event.map(
-        getAllPhoto: (e) async* {
-          yield const PhotoListState.initial();
-          List<PhotoElement> photoList = await _photoListService.getAllPhoto();
+      getAllPhoto: (e) async* {
+        yield const PhotoListState.initial();
+        List<PhotoElement> photoList = await _photoListService.getAllPhoto();
+        if (!photoList[0].failure.value) {
           yield PhotoListState.setAllPhoto(photoList);
-        },
+        } else {
+          yield PhotoListState.setFailure(photoList[0].failure);
+        }
+      },
       getAllPhotoLocal: (e) async* {
         yield const PhotoListState.initial();
         List<PhotoElement> photoList = await _photoListService.getAllPhotoLocal();
-        yield PhotoListState.setAllPhoto(photoList);
+        if (!photoList[0].failure.value) {
+          yield PhotoListState.setAllPhoto(photoList);
+        } else {
+          yield PhotoListState.setFailure(photoList[0].failure);
+        }
       },
       savePhotoLocal: (e) async* {
         await _photoListService.savePhotoLocal(e.photoElement);
@@ -40,4 +48,3 @@ class PhotoListBloc extends Bloc<PhotoListEvent, PhotoListState> {
     );
   }
 }
-

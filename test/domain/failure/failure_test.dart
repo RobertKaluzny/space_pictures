@@ -10,7 +10,7 @@ void main() {
     });
 
     test('copyWith comparisons', () {
-      Failure mockFailureModified =  const Failure(failureId: 'failureId', failureValue: 'failureValueModified', failure: false);
+      Failure mockFailureModified =  const Failure(failureId: 'failureId', failureValue: 'failureValueModified', failureForUser: 'failureForUser', value: false);
 
       expect(mockFailure.copyWith(), mockFailure);
       expect(mockFailure.copyWith(failureValue: 'failureValueModified'), mockFailureModified);

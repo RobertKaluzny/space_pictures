@@ -482,6 +482,12 @@ class _$PhotoListStateTearOff {
       photoList,
     );
   }
+
+  SetFailure setFailure(Failure failure) {
+    return SetFailure(
+      failure,
+    );
+  }
 }
 
 /// @nodoc
@@ -493,18 +499,21 @@ mixin _$PhotoListState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(List<PhotoElement> photoList) setAllPhoto,
+    required TResult Function(Failure failure) setFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(List<PhotoElement> photoList)? setAllPhoto,
+    TResult Function(Failure failure)? setFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(List<PhotoElement> photoList)? setAllPhoto,
+    TResult Function(Failure failure)? setFailure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -512,18 +521,21 @@ mixin _$PhotoListState {
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
     required TResult Function(SetAllPhoto value) setAllPhoto,
+    required TResult Function(SetFailure value) setFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initial value)? initial,
     TResult Function(SetAllPhoto value)? setAllPhoto,
+    TResult Function(SetFailure value)? setFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
     TResult Function(SetAllPhoto value)? setAllPhoto,
+    TResult Function(SetFailure value)? setFailure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -585,6 +597,7 @@ class _$Initial implements Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(List<PhotoElement> photoList) setAllPhoto,
+    required TResult Function(Failure failure) setFailure,
   }) {
     return initial();
   }
@@ -594,6 +607,7 @@ class _$Initial implements Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(List<PhotoElement> photoList)? setAllPhoto,
+    TResult Function(Failure failure)? setFailure,
   }) {
     return initial?.call();
   }
@@ -603,6 +617,7 @@ class _$Initial implements Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(List<PhotoElement> photoList)? setAllPhoto,
+    TResult Function(Failure failure)? setFailure,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -616,6 +631,7 @@ class _$Initial implements Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
     required TResult Function(SetAllPhoto value) setAllPhoto,
+    required TResult Function(SetFailure value) setFailure,
   }) {
     return initial(this);
   }
@@ -625,6 +641,7 @@ class _$Initial implements Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initial value)? initial,
     TResult Function(SetAllPhoto value)? setAllPhoto,
+    TResult Function(SetFailure value)? setFailure,
   }) {
     return initial?.call(this);
   }
@@ -634,6 +651,7 @@ class _$Initial implements Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
     TResult Function(SetAllPhoto value)? setAllPhoto,
+    TResult Function(SetFailure value)? setFailure,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -714,6 +732,7 @@ class _$SetAllPhoto implements SetAllPhoto {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(List<PhotoElement> photoList) setAllPhoto,
+    required TResult Function(Failure failure) setFailure,
   }) {
     return setAllPhoto(photoList);
   }
@@ -723,6 +742,7 @@ class _$SetAllPhoto implements SetAllPhoto {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(List<PhotoElement> photoList)? setAllPhoto,
+    TResult Function(Failure failure)? setFailure,
   }) {
     return setAllPhoto?.call(photoList);
   }
@@ -732,6 +752,7 @@ class _$SetAllPhoto implements SetAllPhoto {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(List<PhotoElement> photoList)? setAllPhoto,
+    TResult Function(Failure failure)? setFailure,
     required TResult orElse(),
   }) {
     if (setAllPhoto != null) {
@@ -745,6 +766,7 @@ class _$SetAllPhoto implements SetAllPhoto {
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
     required TResult Function(SetAllPhoto value) setAllPhoto,
+    required TResult Function(SetFailure value) setFailure,
   }) {
     return setAllPhoto(this);
   }
@@ -754,6 +776,7 @@ class _$SetAllPhoto implements SetAllPhoto {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initial value)? initial,
     TResult Function(SetAllPhoto value)? setAllPhoto,
+    TResult Function(SetFailure value)? setFailure,
   }) {
     return setAllPhoto?.call(this);
   }
@@ -763,6 +786,7 @@ class _$SetAllPhoto implements SetAllPhoto {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
     TResult Function(SetAllPhoto value)? setAllPhoto,
+    TResult Function(SetFailure value)? setFailure,
     required TResult orElse(),
   }) {
     if (setAllPhoto != null) {
@@ -778,5 +802,152 @@ abstract class SetAllPhoto implements PhotoListState {
   List<PhotoElement> get photoList => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SetAllPhotoCopyWith<SetAllPhoto> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $SetFailureCopyWith<$Res> {
+  factory $SetFailureCopyWith(
+          SetFailure value, $Res Function(SetFailure) then) =
+      _$SetFailureCopyWithImpl<$Res>;
+  $Res call({Failure failure});
+
+  $FailureCopyWith<$Res> get failure;
+}
+
+/// @nodoc
+class _$SetFailureCopyWithImpl<$Res> extends _$PhotoListStateCopyWithImpl<$Res>
+    implements $SetFailureCopyWith<$Res> {
+  _$SetFailureCopyWithImpl(SetFailure _value, $Res Function(SetFailure) _then)
+      : super(_value, (v) => _then(v as SetFailure));
+
+  @override
+  SetFailure get _value => super._value as SetFailure;
+
+  @override
+  $Res call({
+    Object? failure = freezed,
+  }) {
+    return _then(SetFailure(
+      failure == freezed
+          ? _value.failure
+          : failure // ignore: cast_nullable_to_non_nullable
+              as Failure,
+    ));
+  }
+
+  @override
+  $FailureCopyWith<$Res> get failure {
+    return $FailureCopyWith<$Res>(_value.failure, (value) {
+      return _then(_value.copyWith(failure: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$SetFailure implements SetFailure {
+  const _$SetFailure(this.failure);
+
+  @override
+  final Failure failure;
+
+  @override
+  String toString() {
+    return 'PhotoListState.setFailure(failure: $failure)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is SetFailure &&
+            (identical(other.failure, failure) ||
+                const DeepCollectionEquality().equals(other.failure, failure)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(failure);
+
+  @JsonKey(ignore: true)
+  @override
+  $SetFailureCopyWith<SetFailure> get copyWith =>
+      _$SetFailureCopyWithImpl<SetFailure>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(List<PhotoElement> photoList) setAllPhoto,
+    required TResult Function(Failure failure) setFailure,
+  }) {
+    return setFailure(failure);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(List<PhotoElement> photoList)? setAllPhoto,
+    TResult Function(Failure failure)? setFailure,
+  }) {
+    return setFailure?.call(failure);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(List<PhotoElement> photoList)? setAllPhoto,
+    TResult Function(Failure failure)? setFailure,
+    required TResult orElse(),
+  }) {
+    if (setFailure != null) {
+      return setFailure(failure);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(SetAllPhoto value) setAllPhoto,
+    required TResult Function(SetFailure value) setFailure,
+  }) {
+    return setFailure(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(SetAllPhoto value)? setAllPhoto,
+    TResult Function(SetFailure value)? setFailure,
+  }) {
+    return setFailure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(SetAllPhoto value)? setAllPhoto,
+    TResult Function(SetFailure value)? setFailure,
+    required TResult orElse(),
+  }) {
+    if (setFailure != null) {
+      return setFailure(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SetFailure implements PhotoListState {
+  const factory SetFailure(Failure failure) = _$SetFailure;
+
+  Failure get failure => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $SetFailureCopyWith<SetFailure> get copyWith =>
       throw _privateConstructorUsedError;
 }

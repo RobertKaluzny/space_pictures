@@ -20,10 +20,12 @@ class PhotoElementItem extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.all(5),
       padding: const EdgeInsets.all(10),
+
       color: Colors.grey,
       child: Column(
         children: [
           Container(
+            //height: 200,
             alignment: Alignment.center,
             child: !localMode
                 ? FadeInImage.memoryNetwork(

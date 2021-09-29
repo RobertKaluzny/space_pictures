@@ -63,6 +63,19 @@ abstract class PhotoElementDTO implements _$PhotoElementDTO {
           url: photoElement.url,
           localPath: photoElement.localPath);
 
+  factory PhotoElementDTO.setFailure(Failure failure) =>
+      PhotoElementDTO(
+          failure: failure,
+          apodSite: '',
+          copyright: '',
+          date: '',
+          description: '',
+          hdurl: '',
+          mediaType: '',
+          title: '',
+          url: '',
+          localPath: '');
+
   PhotoElement toPhotoElement() {
     return PhotoElement(
         failure: failure,

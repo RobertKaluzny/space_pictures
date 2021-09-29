@@ -1,4 +1,5 @@
 import 'package:path/path.dart';
+import 'package:space_pictures/domain/failure/failure.dart';
 import 'dart:io';
 import 'package:space_pictures/infrastructure/database_and_api/photo_element_dto.dart';
 import 'package:sqflite/sqflite.dart';
@@ -62,10 +63,18 @@ class DBSQLitetProvider {
   }
 
   Future<List<PhotoElementDTO>> getAllPhoto() async {
-    final db = await instance.database;
-    final res = await db.rawQuery("SELECT * FROM PhotoElement");
-    List<PhotoElementDTO> list = res.isNotEmpty ? res.map((c) => PhotoElementDTO.fromLocalDatabase(c)).toList() : [];
-    return list;
+    try {
+      final db = await instance.database;
+      final res = await db.rawQuery("SELECT * FROM PhotoElement");
+      List<PhotoElementDTO> list = res.isNotEmpty ? res.map((c) => PhotoElementDTO.fromLocalDatabase(c)).toList() : [];
+      return list;
+    } catch (e){
+      List<PhotoElementDTO> photoElementDTOFailure = [
+        PhotoElementDTO.setFailure(Failure(failureId: 'SQL', failureValue: 'Error from local base', failureForUser: 'Error from local base', value: true))
+      ];
+      return photoElementDTOFailure;
+    }
+
   }
 }
 

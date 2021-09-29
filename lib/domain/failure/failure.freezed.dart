@@ -20,11 +20,13 @@ class _$FailureTearOff {
   _Failure call(
       {required String failureId,
       required String failureValue,
-      required bool failure}) {
+      required String failureForUser,
+      required bool value}) {
     return _Failure(
       failureId: failureId,
       failureValue: failureValue,
-      failure: failure,
+      failureForUser: failureForUser,
+      value: value,
     );
   }
 }
@@ -36,7 +38,8 @@ const $Failure = _$FailureTearOff();
 mixin _$Failure {
   String get failureId => throw _privateConstructorUsedError;
   String get failureValue => throw _privateConstructorUsedError;
-  bool get failure => throw _privateConstructorUsedError;
+  String get failureForUser => throw _privateConstructorUsedError;
+  bool get value => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $FailureCopyWith<Failure> get copyWith => throw _privateConstructorUsedError;
@@ -46,7 +49,11 @@ mixin _$Failure {
 abstract class $FailureCopyWith<$Res> {
   factory $FailureCopyWith(Failure value, $Res Function(Failure) then) =
       _$FailureCopyWithImpl<$Res>;
-  $Res call({String failureId, String failureValue, bool failure});
+  $Res call(
+      {String failureId,
+      String failureValue,
+      String failureForUser,
+      bool value});
 }
 
 /// @nodoc
@@ -61,7 +68,8 @@ class _$FailureCopyWithImpl<$Res> implements $FailureCopyWith<$Res> {
   $Res call({
     Object? failureId = freezed,
     Object? failureValue = freezed,
-    Object? failure = freezed,
+    Object? failureForUser = freezed,
+    Object? value = freezed,
   }) {
     return _then(_value.copyWith(
       failureId: failureId == freezed
@@ -72,9 +80,13 @@ class _$FailureCopyWithImpl<$Res> implements $FailureCopyWith<$Res> {
           ? _value.failureValue
           : failureValue // ignore: cast_nullable_to_non_nullable
               as String,
-      failure: failure == freezed
-          ? _value.failure
-          : failure // ignore: cast_nullable_to_non_nullable
+      failureForUser: failureForUser == freezed
+          ? _value.failureForUser
+          : failureForUser // ignore: cast_nullable_to_non_nullable
+              as String,
+      value: value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -85,7 +97,11 @@ abstract class _$FailureCopyWith<$Res> implements $FailureCopyWith<$Res> {
   factory _$FailureCopyWith(_Failure value, $Res Function(_Failure) then) =
       __$FailureCopyWithImpl<$Res>;
   @override
-  $Res call({String failureId, String failureValue, bool failure});
+  $Res call(
+      {String failureId,
+      String failureValue,
+      String failureForUser,
+      bool value});
 }
 
 /// @nodoc
@@ -101,7 +117,8 @@ class __$FailureCopyWithImpl<$Res> extends _$FailureCopyWithImpl<$Res>
   $Res call({
     Object? failureId = freezed,
     Object? failureValue = freezed,
-    Object? failure = freezed,
+    Object? failureForUser = freezed,
+    Object? value = freezed,
   }) {
     return _then(_Failure(
       failureId: failureId == freezed
@@ -112,9 +129,13 @@ class __$FailureCopyWithImpl<$Res> extends _$FailureCopyWithImpl<$Res>
           ? _value.failureValue
           : failureValue // ignore: cast_nullable_to_non_nullable
               as String,
-      failure: failure == freezed
-          ? _value.failure
-          : failure // ignore: cast_nullable_to_non_nullable
+      failureForUser: failureForUser == freezed
+          ? _value.failureForUser
+          : failureForUser // ignore: cast_nullable_to_non_nullable
+              as String,
+      value: value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -126,7 +147,8 @@ class _$_Failure extends _Failure {
   const _$_Failure(
       {required this.failureId,
       required this.failureValue,
-      required this.failure})
+      required this.failureForUser,
+      required this.value})
       : super._();
 
   @override
@@ -134,11 +156,13 @@ class _$_Failure extends _Failure {
   @override
   final String failureValue;
   @override
-  final bool failure;
+  final String failureForUser;
+  @override
+  final bool value;
 
   @override
   String toString() {
-    return 'Failure(failureId: $failureId, failureValue: $failureValue, failure: $failure)';
+    return 'Failure(failureId: $failureId, failureValue: $failureValue, failureForUser: $failureForUser, value: $value)';
   }
 
   @override
@@ -151,8 +175,11 @@ class _$_Failure extends _Failure {
             (identical(other.failureValue, failureValue) ||
                 const DeepCollectionEquality()
                     .equals(other.failureValue, failureValue)) &&
-            (identical(other.failure, failure) ||
-                const DeepCollectionEquality().equals(other.failure, failure)));
+            (identical(other.failureForUser, failureForUser) ||
+                const DeepCollectionEquality()
+                    .equals(other.failureForUser, failureForUser)) &&
+            (identical(other.value, value) ||
+                const DeepCollectionEquality().equals(other.value, value)));
   }
 
   @override
@@ -160,7 +187,8 @@ class _$_Failure extends _Failure {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(failureId) ^
       const DeepCollectionEquality().hash(failureValue) ^
-      const DeepCollectionEquality().hash(failure);
+      const DeepCollectionEquality().hash(failureForUser) ^
+      const DeepCollectionEquality().hash(value);
 
   @JsonKey(ignore: true)
   @override
@@ -172,7 +200,8 @@ abstract class _Failure extends Failure {
   const factory _Failure(
       {required String failureId,
       required String failureValue,
-      required bool failure}) = _$_Failure;
+      required String failureForUser,
+      required bool value}) = _$_Failure;
   const _Failure._() : super._();
 
   @override
@@ -180,7 +209,9 @@ abstract class _Failure extends Failure {
   @override
   String get failureValue => throw _privateConstructorUsedError;
   @override
-  bool get failure => throw _privateConstructorUsedError;
+  String get failureForUser => throw _privateConstructorUsedError;
+  @override
+  bool get value => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$FailureCopyWith<_Failure> get copyWith =>

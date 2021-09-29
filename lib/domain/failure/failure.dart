@@ -9,8 +9,9 @@ abstract class Failure implements _$Failure {
   const factory Failure({
     required String failureId,
     required String failureValue,
-    required bool failure,
+    required String failureForUser,
+    required bool value,
   }) = _Failure;
 
-  factory Failure.setNoFailure() => const Failure(failureId: '', failureValue: '', failure: false);
+  factory Failure.setNoFailure() => const Failure(failureId: '', failureValue: '', failureForUser: '', value: false);
 }
