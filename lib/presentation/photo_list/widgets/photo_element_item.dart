@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+// ignore: implementation_imports
 import 'package:provider/src/provider.dart';
 import 'package:space_pictures/application/photo_list/photo_list_bloc.dart';
 import 'package:space_pictures/domain/photo_list/photo_element.dart';
@@ -29,9 +30,7 @@ class PhotoElementItem extends StatelessWidget {
                     placeholder: kTransparentImage,
                     image: photoElement.url,
                   )
-                : Container(
-                    child: Image.file(File(photoElement.localPath)),
-                  ),
+                : Image.file(File(photoElement.localPath)),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,

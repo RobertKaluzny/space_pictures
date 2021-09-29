@@ -19,7 +19,7 @@ class PhotoListLocalPrimaryPage extends StatelessWidget {
           elevation: 0,
           backgroundColor: Colors.white,
           leading: IconButton(
-            icon: Icon(Icons.arrow_back),
+            icon: const Icon(Icons.arrow_back),
             color: Colors.green,
             onPressed: () {Navigator.pop(context);},
           ),
