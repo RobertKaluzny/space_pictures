@@ -7,17 +7,21 @@ import 'package:space_pictures/domain/database_and_api/i_external_provider.dart'
 import 'package:space_pictures/domain/failure/failure.dart';
 import 'package:space_pictures/infrastructure/database_and_api/photo_element_dto.dart';
 
+import '../../mock_photo_list.dart';
+
 @LazySingleton(as: IExternalProvider)
 class ApodApiProvider implements IExternalProvider {
   @override
   Future<List<PhotoElementDTO>> getAllPhoto() async {
-    String link = 'https://apodapi.herokuapp.com/api/?thumbs=true&count=5';
+    String link = 'https://apodapi.herokuapp.com/api/?thumbs=true&count=3';
     List<PhotoElementDTO> photoElementDTOList = [];
 
     try {
 
-    final response = await http.get(Uri.parse(link));
-    final responseJSON = jsonDecode(response.body) as List<dynamic>;
+   // final response = await http.get(Uri.parse(link));
+   // final responseJSON = jsonDecode(response.body) as List<dynamic>;
+
+    final responseJSON = jsonDecode(ciagAPI10) as List<dynamic>;
 
       photoElementDTOList = responseJSON.map((i) {
         Map<String, dynamic> map = HashMap.from(i);

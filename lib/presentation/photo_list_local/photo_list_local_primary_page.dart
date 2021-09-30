@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:space_pictures/application/photo_list/photo_list_bloc.dart';
 import 'package:space_pictures/injection.dart';
+import 'package:space_pictures/language/app_localizations.dart';
 import 'package:space_pictures/presentation/photo_list_local/photo_list_local.dart';
 import 'package:space_pictures/presentation/properties.dart';
 
@@ -24,7 +25,7 @@ class PhotoListLocalPrimaryPage extends StatelessWidget {
             color: Colors.black,
             onPressed: () {Navigator.pop(context);},
           ),
-          title: Text('Ulubione', style: Theme.of(context).textTheme.headline5?.copyWith(color: propPrimaryColor)),
+          title: Text(AppLocalizations.of(context)!.translate('text_safed'), style: Theme.of(context).textTheme.headline6?.copyWith(color: Colors.black)),
         ),
         body: const PhotoListLocal(),
       ),

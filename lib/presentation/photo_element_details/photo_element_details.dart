@@ -2,13 +2,15 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:space_pictures/domain/photo_list/photo_element.dart';
-import 'package:space_pictures/presentation/photo_element_details/group_of_text_horizontal.dart';
-import 'package:space_pictures/presentation/properties.dart';
+import 'package:space_pictures/presentation/photo_element_details/detail_picture.dart';
+import 'package:space_pictures/presentation/photo_element_details/detail_texts.dart';
+import 'package:space_pictures/presentation/photo_element_details/detail_title.dart';
 
 class PhotoElementDetails extends StatelessWidget {
   final PhotoElement photoElement;
+  final bool localMode;
 
-  const PhotoElementDetails({Key? key, required this.photoElement}) : super(key: key);
+  const PhotoElementDetails({Key? key, required this.photoElement, this.localMode = false}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -55,39 +57,12 @@ class PhotoElementDetails extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
-                    Container(
-                      margin: const EdgeInsets.all(10),
-                      height: 270,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(8.0),
-                        child: Image.network(photoElement.url, fit: BoxFit.cover),
-                      ),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.all(10),
-                      child: Text(photoElement.title,
-                          textAlign: TextAlign.center,
-                          style: Theme.of(context).textTheme.headline5?.copyWith(color: propPrimaryColor)),
-                    ),
+                    DetailPicture(localMode: localMode, photoElement: photoElement),
+                    DetailTitle(photoElement: photoElement),
                     const SizedBox(
-                      height: 10,
+                      height: 5,
                     ),
-                    Container(
-                      margin: const EdgeInsets.all(10),
-                      alignment: Alignment.topLeft,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          GroupofTextHorizontal(title: "Date", text: photoElement.date),
-                          GroupofTextHorizontal(title: "Copyright", text: photoElement.copyright),
-                          GroupofTextHorizontal(title: "Description", text: photoElement.description),
-                        ],
-                      ),
-                    )
+                    DetailTexts(photoElement: photoElement)
                   ],
                 ),
               ),
@@ -110,3 +85,6 @@ class PhotoElementDetails extends StatelessWidget {
     );
   }
 }
+
+
+

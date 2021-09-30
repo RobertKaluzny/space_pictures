@@ -8,7 +8,6 @@ import 'package:space_pictures/application/photo_list/photo_list_bloc.dart';
 import 'package:space_pictures/domain/photo_list/photo_element.dart';
 import 'package:space_pictures/presentation/photo_element_details/photo_element_details.dart';
 import 'package:space_pictures/presentation/properties.dart';
-import 'package:transparent_image/transparent_image.dart';
 
 class PhotoElementItem extends StatelessWidget {
   final PhotoElement photoElement;
@@ -33,6 +32,7 @@ class PhotoElementItem extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) => PhotoElementDetails(
+                          localMode: true,
                           photoElement: photoElement,
                         )),
               );
@@ -43,8 +43,9 @@ class PhotoElementItem extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(12.0),
                   child: !localMode
-                      ? FadeInImage.memoryNetwork(
-                          placeholder: kTransparentImage,
+                      ? FadeInImage.assetNetwork(
+                          //placeholder: kTransparentImage,
+                          placeholder: 'assets/loader_64x64.gif',
                           image: photoElement.url,
                         )
                       : Image.file(File(photoElement.localPath)),
@@ -62,16 +63,19 @@ class PhotoElementItem extends StatelessWidget {
                         context.read<PhotoListBloc>().add(PhotoListEvent.savePhotoLocal(photoElement));
                       },
                     )
-                  : Container(),
+                  : Container(padding: EdgeInsets.all(10),),
               Container(
                 width: 280,
                 padding: const EdgeInsets.all(0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(photoElement.date, style: Theme.of(context).textTheme.headline6?.copyWith(color: propSecondaryColor)),
+                    Text(photoElement.date,
+                        style: Theme.of(context).textTheme.headline6?.copyWith(color: propSecondaryColor)),
                     Text(photoElement.title, style: Theme.of(context).textTheme.bodyText1),
-                    const SizedBox(height: 20,)
+                    const SizedBox(
+                      height: 20,
+                    )
                   ],
                 ),
               ),

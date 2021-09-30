@@ -14,7 +14,6 @@ class GroupofTextHorizontal extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-
         Text(
           title,
           textAlign: TextAlign.left,
