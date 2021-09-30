@@ -13,15 +13,16 @@ import '../../mock_photo_list.dart';
 class ApodApiProvider implements IExternalProvider {
   @override
   Future<List<PhotoElementDTO>> getAllPhoto() async {
-    String link = 'https://apodapi.herokuapp.com/api/?thumbs=true&count=3';
+    String link = 'https://apodapi.herokuapp.com/api/?thumbs=true&count=20';
     List<PhotoElementDTO> photoElementDTOList = [];
 
     try {
 
-   // final response = await http.get(Uri.parse(link));
-   // final responseJSON = jsonDecode(response.body) as List<dynamic>;
+    final response = await http.get(Uri.parse(link));
+    final responseJSON = jsonDecode(response.body) as List<dynamic>;
 
-    final responseJSON = jsonDecode(ciagAPI10) as List<dynamic>;
+    //temporary local data
+    //final responseJSON = jsonDecode(ciagAPI10) as List<dynamic>;
 
       photoElementDTOList = responseJSON.map((i) {
         Map<String, dynamic> map = HashMap.from(i);
