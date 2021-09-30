@@ -1,5 +1,8 @@
 {
   "title": "Space pictures",
   "button_refresh": "Refresh",
-  "text_safed": "Saved photos"
+  "text_safed": "Saved photos",
+  "text_date": "Date",
+  "text_copyright": "Copyright",
+  "text_description": "Description"
 }

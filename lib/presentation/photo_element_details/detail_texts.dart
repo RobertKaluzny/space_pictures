@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:space_pictures/domain/photo_list/photo_element.dart';
+import 'package:space_pictures/language/app_localizations.dart';
 import 'package:space_pictures/presentation/photo_element_details/group_of_text_horizontal.dart';
 
 class DetailTexts extends StatelessWidget {
@@ -18,9 +19,10 @@ class DetailTexts extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          GroupofTextHorizontal(title: "Date", text: photoElement.date),
-          GroupofTextHorizontal(title: "Copyright", text: photoElement.copyright),
-          GroupofTextHorizontal(title: "Description", text: photoElement.description),
+
+          GroupofTextHorizontal(title: AppLocalizations.of(context)!.translate('text_date'), text: photoElement.date),
+          GroupofTextHorizontal(title: AppLocalizations.of(context)!.translate('text_copyright'), text: photoElement.copyright),
+          GroupofTextHorizontal(title: AppLocalizations.of(context)!.translate('text_description'), text: photoElement.description),
         ],
       ),
     );

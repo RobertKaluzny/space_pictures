@@ -4,7 +4,6 @@ import 'package:space_pictures/application/photo_list/photo_list_bloc.dart';
 import 'package:space_pictures/injection.dart';
 import 'package:space_pictures/language/app_localizations.dart';
 import 'package:space_pictures/presentation/photo_list_local/photo_list_local.dart';
-import 'package:space_pictures/presentation/properties.dart';
 
 class PhotoListLocalPrimaryPage extends StatelessWidget {
   const PhotoListLocalPrimaryPage({Key? key}) : super(key: key);

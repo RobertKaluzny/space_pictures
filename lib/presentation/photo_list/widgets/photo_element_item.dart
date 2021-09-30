@@ -32,7 +32,7 @@ class PhotoElementItem extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) => PhotoElementDetails(
-                          localMode: true,
+                          localMode: localMode,
                           photoElement: photoElement,
                         )),
               );
@@ -63,7 +63,7 @@ class PhotoElementItem extends StatelessWidget {
                         context.read<PhotoListBloc>().add(PhotoListEvent.savePhotoLocal(photoElement));
                       },
                     )
-                  : Container(padding: EdgeInsets.all(10),),
+                  : Container(padding: const EdgeInsets.all(10),),
               Container(
                 width: 280,
                 padding: const EdgeInsets.all(0),

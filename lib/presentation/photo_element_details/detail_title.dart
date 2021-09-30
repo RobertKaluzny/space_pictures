@@ -13,11 +13,8 @@ class DetailTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(10),
-      child: Text(photoElement.title,
-          textAlign: TextAlign.center,
-          style: Theme.of(context).textTheme.headline5?.copyWith(color: propPrimaryColor)),
-    );
+    return Text(photoElement.title,
+        textAlign: TextAlign.center,
+        style: Theme.of(context).textTheme.headline5?.copyWith(color: propPrimaryColor));
   }
 }

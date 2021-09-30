@@ -6,7 +6,7 @@ import 'package:space_pictures/domain/photo_list/photo_element.dart';
 class DetailPicture extends StatelessWidget {
   const DetailPicture({
     Key? key,
-    required this.localMode,
+    this.localMode = false,
     required this.photoElement,
   }) : super(key: key);
 
@@ -16,7 +16,7 @@ class DetailPicture extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(10),
+      margin: const EdgeInsets.all(5),
       height: 270,
       alignment: Alignment.center,
       decoration: BoxDecoration(
@@ -24,9 +24,8 @@ class DetailPicture extends StatelessWidget {
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(8.0),
-        child: !localMode
-            ? Image.network(photoElement.url, fit: BoxFit.cover)
-            : Image.file(File(photoElement.localPath)),
+        child:
+            !localMode ? Image.network(photoElement.url, fit: BoxFit.cover) : Image.file(File(photoElement.localPath)),
       ),
     );
   }

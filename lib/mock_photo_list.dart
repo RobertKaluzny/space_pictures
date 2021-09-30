@@ -1,5 +1,3 @@
-import 'package:space_pictures/domain/failure/failure.dart';
-import 'package:space_pictures/domain/photo_list/photo_element.dart';
 String ciagAPI = "[{\"apod_site\":\"https://apod.nasa.gov/apod/ap980106.html\","
     "\"copyright\":\"B. Balick (U. Washington) et al., WFPC2, HST, NASA\","
     "\"date\":\"1998-01-06\","

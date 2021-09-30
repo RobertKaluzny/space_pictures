@@ -1,5 +1,8 @@
 {
   "title": "Zdjęcia kosmosu",
   "button_refresh": "Odśwież",
-  "text_safed": "Zapisane zdjęcia"
+  "text_safed": "Fotografie zapisane",
+  "text_date": "Data",
+  "text_copyright": "Copyright",
+  "text_description": "Opis"
 }
